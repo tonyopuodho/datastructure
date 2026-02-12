@@ -28,6 +28,11 @@ class LinkedList{
     }
 
     pop(){
+        
+        if (!this.head) {
+            return undefined
+        }
+
         let temp = this.head
         let prev = this.head
 
@@ -40,8 +45,30 @@ class LinkedList{
         this.tail.next = null
         this.length--
 
+        if (this.length === 0){
+            this.head = null
+            this.tail = null
+        }
+
         return temp
     }
+
+    unshift(value){
+        const newNode = new Node(value)
+
+        if (!this.head){
+            this.head = newNode
+            this.tail = newNode
+        }
+
+        newNode.next = this.head
+        this.head = newNode
+        this.length++
+
+        return this
+    }
+
+    
 }
 
 const linkedList = new LinkedList(1)
