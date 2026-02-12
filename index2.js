@@ -85,6 +85,29 @@ class LinkedList{
         return temp
     }
 
+    getFirst(){
+        return this.head
+    }
+
+    getLast(){
+        if (!this.head){
+            return null
+        }
+
+        let temp = this.head
+
+        while (temp) {
+            if(!temp.next){
+
+                return temp
+
+            }
+
+            temp = temp.next
+        }
+    }
+
+    
 
 }
 
